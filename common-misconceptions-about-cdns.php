@@ -3,6 +3,7 @@
 	$Canonical = 'common-misconceptions-about-cdns';
 	require 'head.php';
 ?>
+
 	<body>
 		<header>
 			<h1>Common misconceptions about CDNs</h1>

@@ -3,6 +3,7 @@
 	$Canonical = 'how-to-use-cdns-properly';
 	require 'head.php';
 ?>
+
 	<body>
 		<header>
 			<h1>How to use CDNs properly</h1>

@@ -3,6 +3,7 @@
 	$Canonical = 'compare-cdns';
 	require 'head.php';
 ?>
+
 	<body>
 		<header>
 			<h1>Compare CDNs</h1>
