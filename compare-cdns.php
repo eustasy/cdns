@@ -1,5 +1,6 @@
 <?php
 	$Title = 'Compare CDNs';
+	$Canonical = 'compare-cdns';
 	require 'head.php';
 ?>
 	<body>

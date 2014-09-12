@@ -1,5 +1,6 @@
 <?php
 	$Title = 'How to use CDNs properly';
+	$Canonical = 'how-to-use-cdns-properly';
 	require 'head.php';
 ?>
 	<body>
