@@ -19,7 +19,7 @@
 			jQl.loadjQ('//cdn.jsdelivr.net/g/prefixfree,jquery');
 		</script><?php
 			if (!empty($Canonical)) echo '
-		<link rel="canonical" href="'.$Canonical.'">'; ?>
+		<link rel="canonical" href="http://labs.eustasy.org/cdns/'.$Canonical.'">'; ?>
 
 		<link rel="stylesheet prefetch" href="//fonts.googleapis.com/css?family=Lusitana|Roboto:400,500,400italic|Source+Code+Pro">
 		<link rel="stylesheet prefetch" href="//cdn.jsdelivr.net/g/normalize,colors.css">
