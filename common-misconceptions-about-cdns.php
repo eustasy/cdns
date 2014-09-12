@@ -1,5 +1,6 @@
 <?php
 	$Title = 'Common misconceptions about CDNs';
+	$Canonical = 'common-misconceptions-about-cdns';
 	require 'head.php';
 ?>
 	<body>
