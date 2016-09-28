@@ -84,14 +84,14 @@
 					<td class="color-pomegranate">No</td>
 				</tr>
 			</table>
-			<p id="sup-1" class="color-9">1. Speed statistics from <a class="color-belize-hole" href="http://www.cdnperf.com/">CDNperf</a>.</p>
+			<p id="sup-1" class="color-9">1. Speed statistics from <a class="color-belize-hole" href="https://www.cdnperf.com/">CDNperf</a>.</p>
 			<p id="sup-2" class="color-9">2. jsDelivr allows the addition of <a class="color-belize-hole" href="https://github.com/jsdelivr/jsdelivr#auto-updating">auto-update configuration</a> for libraries they host.</p>
 			<p id="sup-3" class="color-9">3. jsDelivr can <a class="color-belize-hole" href="https://github.com/jsdelivr/jsdelivr#load-multiple-files-with-single-http-request">combine multiple files</a> of either JavaScript or CSS into a single request simply by loading a specially formatted URL.</p>
 			<p id="sup-3" class="color-9">4. jsDelivr is not actually a CDN itself, instead it relies on multiple CDNs to guarantee performance and availability.</p>
 		</section>
 		<hr id="footer">
 		<footer>
-			<h3>a <a class="color-belize-hole" href="http://eustasy.org/">eustasy</a> lab</h3>
+			<h3>a <a class="color-belize-hole" href="https://eustasy.org/">eustasy</a> lab</h3>
 		</footer>
 	</body>
 </html>
