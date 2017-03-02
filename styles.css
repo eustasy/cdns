@@ -60,7 +60,7 @@ table {
 }
 th,
 td {
-	font-weight: normal;
+	font-weight: 400;
 	padding: 0.5em 1em;
 }
 /* $Classes */
@@ -72,7 +72,7 @@ td {
 .text-center { text-align: center; }
 .text-left { text-align: left; }
 .text-right { text-align: right; }
-.text-bold { font-weight: bold; }
+.text-bold { font-weight: 600; }
 .text-italic { font-style: italic; }
 .float-center { margin: 0 auto; }
 .float-left { float: left; }
