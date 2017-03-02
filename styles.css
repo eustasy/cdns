@@ -8,18 +8,18 @@ a:focus {
 	text-decoration: underline;
 }
 body {
-	color: #222;
-	font: normal 1rem/1.4 'Lusitana', serif;
+	color: #222222;
+	font: 400 1rem/1.4 'Lusitana', serif;
 	margin: 0 auto;
 	max-width: 50rem;
 	text-align: center;
 }
 code {
-border-radius: 0.3rem;
-display: block;
-font-family: 'Source Code Pro', monospace;
-margin: 1rem 0;
-padding: 0.5rem;
+	border-radius: 0.3rem;
+	display: block;
+	font-family: 'Source Code Pro', monospace;
+	margin: 1rem 0;
+	padding: 0.5rem;
 }
 h1,
 h2,
@@ -27,8 +27,8 @@ h3,
 h4,
 h5,
 h6 {
-	color: #333;
-	font-weight: normal;
+	color: #333333;
+	font-weight: 400;
 	margin: 2rem 0 1rem;
 }
 header {
@@ -39,14 +39,14 @@ header h3 {
 	margin: 0;
 }
 hr {
-	background: #ccc;
-	background: linear-gradient(to right, #ffffff 0%,#cccccc 47%,#ffffff 100%);
+	background: #cccccc;
+	background: linear-gradient(to right, #ffffff 0%, #cccccc 47%, #ffffff 100%);
 	border: none;
 	height: 1px;
 	width: 100%;
 }
 p {
-	font: normal 1rem/1.4 'Roboto', sans-serif;
+	font: 400 1rem/1.4 'Roboto', sans-serif;
 	text-align: left;
 	margin: 1rem 0;
 }
@@ -55,13 +55,13 @@ section {
 }
 table {
 	border-spacing: 0;
-	font: normal 1em/1.4 'Roboto', sans-serif;
+	font: 400 1em/1.4 'Roboto', sans-serif;
 	width: 100%;
 }
 th,
 td {
 	font-weight: normal;
-	padding: .5em 1em;
+	padding: 0.5em 1em;
 }
 /* $Classes */
 .clear-fix { zoom: 1; }
@@ -77,9 +77,7 @@ td {
 .float-center { margin: 0 auto; }
 .float-left { float: left; }
 .float-right { float: right; }
-.weight-500 {
-	font-weight: 500 !important;
-}
+.weight-500 { font-weight: 500; }
 .monospace {
 	font-family: 'Source Code Pro', monospace;
 }
