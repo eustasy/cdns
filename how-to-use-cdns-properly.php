@@ -14,11 +14,11 @@
 			<h2>Use HTTPS-Only URLs</h2>
 			<p>Secure connections rely on all the content in a page being loaded over another secure connection. You can use protocol relative URLs, which will copy the protocol of the parent, or specify for all requests to be secure.</p>
 			<h3>Throws a security warning on secure pages.</h3>
-			<code class="background-pomegranate color-white pre-line">&hellip; src="http://cdn.jsdelivr.net/g/jquery" &hellip;</code>
+			<code class="background-pomegranate color-white pre-line">&hellip; src="http://cdn.jsdelivr.net/gh/jquery/jquery@3/dist/jquery.min.js" &hellip;</code>
 			<h3>Fails when running over a local file connection.</h3>
-			<code class="background-carrot color-white pre-line">&hellip; src="//cdn.jsdelivr.net/g/jquery" &hellip;</code>
+			<code class="background-carrot color-white pre-line">&hellip; src="//cdn.jsdelivr.net/gh/jquery/jquery@3/dist/jquery.min.js" &hellip;</code>
 			<h3>Always negotiates a secure connection.</h3>
-			<code class="background-nephritis color-white pre-line">&hellip; src="https://cdn.jsdelivr.net/g/jquery" &hellip;</code>
+			<code class="background-nephritis color-white pre-line">&hellip; src="https://cdn.jsdelivr.net/gh/jquery/jquery@3/dist/jquery.min.js" &hellip;</code>
 		</section>
 		<hr id="load-javascript-asynchronously">
 		<section>
@@ -77,7 +77,7 @@
 &hellip;</code>
 			<h3>One Request for Multiple Libraries.</h3>
 			<code class="background-nephritis color-white pre-block">&hellip;
-&lt;script src="https://cdn.jsdelivr.net/g/rem,prefixfree,jquery"&gt;&lt;/script&gt;
+&lt;script src="https://cdn.jsdelivr.net/combine/gh/jquery/jquery@3/dist/jquery.min.js,gh/chuckcarpenter/REM-unit-polyfill@1/js/rem.min.js,gh/LeaVerou/prefixfree@1/prefixfree.min.js"&gt;&lt;/script&gt;
 &hellip;</code>
 		</section>
 		<hr id="have-a-lower-latency">
