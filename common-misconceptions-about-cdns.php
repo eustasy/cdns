@@ -7,7 +7,7 @@
 	<body>
 		<header>
 			<h1>Common misconceptions about CDNs</h1>
-			<h3><a class="color-belize-hole" href="compare-cdns">Compare CDNs</a> &emsp; <a class="color-belize-hole" href="how-to-use-cdns-properly">How to use CDNs properly</a></h3>
+			<h3><a class="color-flatui-belize-hole" href="compare-cdns">Compare CDNs</a> &emsp; <a class="color-flatui-belize-hole" href="how-to-use-cdns-properly">How to use CDNs properly</a></h3>
 		</header>
 		<hr id="youll-probably-load-jquery-from-cache-instantly-if-you-use-a-cdn">
 		<section>
@@ -19,7 +19,7 @@
 		<section>
 			<h2>CDNs are only for common libraries like jQuery</h2>
 			<p>Not jsDelivr, or CDNJS for that matter. These two allow submission of any library (CDNJS is stricter, requiring some level of popularity). Combine that with the file-combiner found at jsDelivr, and you've got yourself one file taking care of several requests that's the same size as if they had been loaded seperately.</p>
-			<p class="text-right color-9">See <a class="color-belize-hole" href="how-to-use-cdns-properly#make-fewer-requests">How to make fewer requests</a>.</p>
+			<p class="text-right color-9">See <a class="color-flatui-belize-hole" href="how-to-use-cdns-properly#make-fewer-requests">How to make fewer requests</a>.</p>
 		</section>
 		<hr id="cdns-are-always-available-to-everyone">
 		<section>
@@ -30,7 +30,7 @@
 		</section>
 		<hr id="footer">
 		<footer>
-			<h3>a <a class="color-belize-hole" href="https://eustasy.org/">eustasy</a> lab</h3>
+			<h3>a <a class="color-flatui-belize-hole" href="https://eustasy.org/">eustasy</a> lab</h3>
 		</footer>
 	</body>
 </html>
