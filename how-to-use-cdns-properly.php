@@ -70,7 +70,7 @@
 			<h2>Make Fewer Requests</h2>
 			<p>One of the many reasons we like <a class="color-flatui-belize-hole" href="https://www.jsdelivr.com/">jsDelivr</a> is because it provides a unique file combiner, which eradicates extraneous requests which, especially with smaller files, can add considerably latency (literally) to your page.</p>
 			<h3>One Request for Every Library.</h3>
-			<code class="background-pomegranate color-white pre-block">&hellip;
+			<code class="background-flatui-pomegranate color-white pre-block">&hellip;
 &lt;script src="assets/js/rem.min.js"&gt;&lt;/script&gt;
 &lt;script src="assets/js/prefixfree.min.js"&gt;&lt;/script&gt;
 &lt;script src="assets/js/jquery.min.js"&gt;&lt;/script&gt;
