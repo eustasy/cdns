@@ -28,6 +28,11 @@
 			<p>Your CDN may not always be available to everyone, but seeing as you should always be able to gracefully fall back without JavaScript anyway, that shouldn't be an issue, right?</p>
 			<p class="color-9">CSS loaded off of a CDN might be more difficult to fix, but if you're loading CSS, then it's probably from jsDelivr or CDNJS, and it's only Microsoft, Yahoo and Google that have been blocked in the past.</p>
 		</section>
+		<hr id="loading-from-cache-works-across-domains">
+		<section>
+			<h2>Loading from cache works across domains</h2>
+			<p>Browsers partition their caches by origin, so a resource cached when loaded from one domain will not be served from cache when requested by a different domain. This means that even if a user has previously visited a site that loaded jQuery from a CDN, your site will still have to download it fresh if it's being requested in a different context. Cross-origin cache sharing was once a theoretical benefit of public CDNs, but modern browsers have largely eliminated it as a privacy protection against cross-site tracking.</p>
+		</section>
 		<hr id="footer">
 		<footer>
 			<h3>a <a class="color-flatui-belize-hole" href="https://eustasy.org/">eustasy</a> lab</h3>
