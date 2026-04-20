@@ -82,7 +82,7 @@ td {
 	font-family: 'Source Code Pro', monospace;
 }
 .pre-line {
-	text-align: center;
+	text-align: left;
 	white-space: pre-line;
 }
 .pre-block {
