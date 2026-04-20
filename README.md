@@ -1,4 +1,13 @@
 # A CDN Advisory Site
 
-[![Normal](https://github.com/eustasy/cdns/actions/workflows/normal.yml/badge.svg)](https://github.com/eustasy/cdns/actions/workflows/normal.yml)
-[![Code Climate](https://codeclimate.com/github/eustasy/cdns/badges/gpa.svg)](https://codeclimate.com/github/eustasy/cdns)
+This repository contains a small static site about CDN usage.
+
+## Content
+
+- [Compare CDNs](compare-cdns.html)
+- [How to Use CDNs Properly](how-to-use-cdns-properly.html)
+- [Common Misconceptions About CDNs](common-misconceptions-about-cdns.html)
+
+## License
+
+See [LICENSE.md](LICENSE.md).
