@@ -35,6 +35,79 @@
         >
       </h3>
     </header>
+    <hr id="cdns-are-inherently-safe" />
+    <section>
+      <h2>CDNs are inherently safe</h2>
+      <h3>Supply chain attacks are real.</h3>
+      <p>
+        When you load a script from a third-party CDN, you are trusting that CDN
+        to serve exactly the code you expect. If the CDN is compromised, or
+        changes ownership, malicious code can be injected into every site that
+        loads from it.
+      </p>
+      <p>
+        This is not theoretical. In 2024, the popular polyfill.io domain was
+        acquired by a new owner and began injecting malware into the scripts it
+        served, affecting over 100,000 websites. The original maintainer had no
+        control over the domain after the sale.
+      </p>
+      <p>
+        To mitigate this risk, always use
+        <a
+          class="color-flatui-belize-hole"
+          href="how-to-use-cdns-properly#use-subresource-integrity"
+          >Subresource Integrity (SRI)</a
+        >
+        attributes on your script and link tags. SRI ensures the browser will
+        reject any file whose contents don't match the expected hash, even if
+        the CDN has been compromised.
+      </p>
+    </section>
+    <hr id="loading-from-cache-works-across-domains" />
+    <section>
+      <h2>Loading from cache works across domains</h2>
+      <p>
+        Browsers partition their caches by origin, so a resource cached when
+        loaded from one domain will not be served from cache when requested by a
+        different domain. This means that even if a user has previously visited
+        a site that loaded jQuery from a CDN, your site will still have to
+        download it fresh if it's being requested in a different context.
+        Cross-origin cache sharing was once a theoretical benefit of public
+        CDNs, but modern browsers have largely eliminated it as a privacy
+        protection against cross-site tracking.
+      </p>
+    </section>
+    <hr id="cdns-are-always-available-to-everyone" />
+    <section>
+      <h2>CDNs are always available to everyone</h2>
+      <p>
+        Your CDN may not always be available to everyone, but seeing as you
+        should always be able to gracefully fall back without JavaScript anyway,
+        that shouldn't be an issue, right?
+      </p>
+      <p class="color-9">
+        CSS loaded off of a CDN might be more difficult to fix, but if you're
+        loading CSS, then it's probably from jsDelivr or CDNJS, and it's only
+        Google that has been blocked in the past.
+      </p>
+      <p>
+        Beyond country-level blocks, corporate firewalls and proxy servers may
+        block or filter CDN domains. Ad-blockers and privacy extensions
+        sometimes catch CDN URLs in their filter lists. And for sites with
+        European users, loading resources from US-hosted CDNs may raise GDPR
+        concerns around cross-border data transfers, since even a script request
+        transmits the user's IP address to the CDN provider.
+      </p>
+      <p>
+        Always have a
+        <a
+          class="color-flatui-belize-hole"
+          href="how-to-use-cdns-properly#fallback-strategies"
+          >fallback strategy</a
+        >
+        for when a CDN is unreachable.
+      </p>
+    </section>
     <hr id="youll-probably-load-jquery-from-cache-instantly-if-you-use-a-cdn" />
     <section>
       <h2>You'll probably load jQuery from Cache instantly if you use a CDN</h2>
@@ -73,65 +146,6 @@
         &mdash; though note that HTTP/2 has reduced the benefit of combining.
       </p>
     </section>
-    <hr id="cdns-are-always-available-to-everyone" />
-    <section>
-      <h2>CDNs are always available to everyone</h2>
-      <p>
-        Your CDN may not always be available to everyone, but seeing as you
-        should always be able to gracefully fall back without JavaScript anyway,
-        that shouldn't be an issue, right?
-      </p>
-      <p class="color-9">
-        CSS loaded off of a CDN might be more difficult to fix, but if you're
-        loading CSS, then it's probably from jsDelivr or CDNJS, and it's only
-        Microsoft, Yahoo and Google that have been blocked in the past.
-      </p>
-      <p>
-        Beyond country-level blocks, corporate firewalls and proxy servers may
-        block or filter CDN domains. Ad-blockers and privacy extensions
-        sometimes catch CDN URLs in their filter lists. And for sites with
-        European users, loading resources from US-hosted CDNs may raise GDPR
-        concerns around cross-border data transfers, since even a script request
-        transmits the user's IP address to the CDN provider.
-      </p>
-      <p>
-        Always have a
-        <a
-          class="color-flatui-belize-hole"
-          href="how-to-use-cdns-properly#fallback-strategies"
-          >fallback strategy</a
-        >
-        for when a CDN is unreachable.
-      </p>
-    </section>
-    <hr id="cdns-are-inherently-safe" />
-    <section>
-      <h2>CDNs are inherently safe</h2>
-      <h3>Supply chain attacks are real.</h3>
-      <p>
-        When you load a script from a third-party CDN, you are trusting that CDN
-        to serve exactly the code you expect. If the CDN is compromised, or
-        changes ownership, malicious code can be injected into every site that
-        loads from it.
-      </p>
-      <p>
-        This is not theoretical. In 2024, the popular polyfill.io domain was
-        acquired by a new owner and began injecting malware into the scripts it
-        served, affecting over 100,000 websites. The original maintainer had no
-        control over the domain after the sale.
-      </p>
-      <p>
-        To mitigate this risk, always use
-        <a
-          class="color-flatui-belize-hole"
-          href="how-to-use-cdns-properly#use-subresource-integrity"
-          >Subresource Integrity (SRI)</a
-        >
-        attributes on your script and link tags. SRI ensures the browser will
-        reject any file whose contents don't match the expected hash, even if
-        the CDN has been compromised.
-      </p>
-    </section>
     <hr id="combining-files-always-helps-performance" />
     <section>
       <h2>Combining files always helps performance</h2>
@@ -153,20 +167,6 @@
         the clear win it used to be, and it can hurt caching
         granularity&mdash;changing one library in a combined bundle invalidates
         the cache for all of them.
-      </p>
-    </section>
-    <hr id="loading-from-cache-works-across-domains" />
-    <section>
-      <h2>Loading from cache works across domains</h2>
-      <p>
-        Browsers partition their caches by origin, so a resource cached when
-        loaded from one domain will not be served from cache when requested by a
-        different domain. This means that even if a user has previously visited
-        a site that loaded jQuery from a CDN, your site will still have to
-        download it fresh if it's being requested in a different context.
-        Cross-origin cache sharing was once a theoretical benefit of public
-        CDNs, but modern browsers have largely eliminated it as a privacy
-        protection against cross-site tracking.
       </p>
     </section>
     <hr id="see-also" />

@@ -230,14 +230,16 @@
     <hr id="make-fewer-requests" />
     <section>
       <h2>Make Fewer Requests</h2>
+      <p class="color-9">
+        Note: With HTTP/2 and HTTP/3 now universally supported by CDNs and
+        modern browsers, the performance benefit of combining files is much
+        smaller than it once was. Consider whether combining is worth the added
+        complexity and reduced cache granularity.
+      </p>
       <p>
-        One of the many reasons we like
-        <a class="color-flatui-belize-hole" href="https://www.jsdelivr.com/"
-          >jsDelivr</a
-        >
-        is because it provides a unique file combiner, which eradicates
-        extraneous requests which, especially with smaller files, can add
-        considerable latency (literally) to your page.
+        jsDelivr provides a file combiner that can bundle multiple libraries
+        into a single request. This was a significant optimisation under
+        HTTP/1.1, and can still help when loading many very small files.
       </p>
       <h3>One Request for Every Library.</h3>
       <code class="background-flatui-pomegranate color-white pre-block"
@@ -256,13 +258,19 @@
     <section>
       <h2>Have a Lower Latency</h2>
       <p>
-        According to
+        Check
         <a class="color-flatui-belize-hole" href="https://www.cdnperf.com/"
           >CDNperf</a
-        >, jsDelivr offers one of the lowest latencies of any CDN. Latency is
-        the time a user's computer takes to find a site, so a lower latency
-        means starting to load sooner. Stay away from Yandex unless your site's
-        users are local to it, and you should be fine.
+        >
+        for current latency rankings. Cloudflare (which backs CDNJS) and
+        jsDelivr consistently perform well globally. Latency is the time it
+        takes for a user's browser to reach a CDN, so lower latency means faster
+        first bytes.
+      </p>
+      <p class="color-9">
+        Regional performance varies. If your users are concentrated in specific
+        regions, test from those locations rather than relying on global
+        averages.
       </p>
     </section>
     <hr id="fallback-strategies" />
@@ -287,6 +295,19 @@
         failures, or simply self-host stylesheets that are essential to your
         layout.
       </p>
+      <h3>ES Module fallbacks with import maps.</h3>
+      <p>
+        For ES modules, import maps let you define fallback URLs declaratively.
+        While browser support for multiple fallback URLs is still evolving, you
+        can use a service worker or a small loader script to handle module
+        fallbacks.
+      </p>
+      <code class="background-flatui-nephritis color-white pre-block"
+        >&hellip; &lt;script type="importmap"&gt;{ "imports": { "lodash":
+        "https://cdn.jsdelivr.net/npm/lodash-es@4/lodash.js" } }&lt;/script&gt;
+        &lt;script type="module"&gt; import _ from 'lodash'; // Use lodash
+        &lt;/script&gt; &hellip;</code
+      >
       <p class="color-9">
         A well-designed site should degrade gracefully. If your page is unusable
         without JavaScript, that's a bigger problem than CDN availability.
