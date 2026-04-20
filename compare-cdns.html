@@ -49,6 +49,8 @@
           <th class="weight-500">Submit</th>
           <th class="weight-500">CSS too</th>
           <th class="weight-500">Combiner</th>
+          <th class="weight-500">ES Modules</th>
+          <th class="weight-500">SRI Hashes</th>
           <th class="weight-500">Multi-CDN</th>
         </tr>
         <tr>
@@ -67,6 +69,8 @@
               ><a class="color-flatui-belize-hole" href="#sup-3">3</a></sup
             >
           </td>
+          <td class="color-flatui-nephritis">Yes</td>
+          <td class="color-flatui-nephritis">Yes</td>
           <td class="color-flatui-nephritis">
             Yes<sup
               ><a class="color-flatui-belize-hole" href="#sup-4">4</a></sup
@@ -74,12 +78,54 @@
           </td>
         </tr>
         <tr>
-          <td class="weight-500">CDNJS</td>
+          <td class="weight-500">
+            CDNJS<sup
+              ><a class="color-flatui-belize-hole" href="#sup-5">5</a></sup
+            >
+          </td>
           <td class="color-flatui-nephritis">Okay</td>
           <td class="color-flatui-nephritis">Yes</td>
           <td class="color-flatui-nephritis">Yes</td>
           <td class="color-flatui-nephritis">Yes</td>
           <td class="color-flatui-nephritis">Yes</td>
+          <td class="color-flatui-pomegranate">No</td>
+          <td class="color-flatui-nephritis">Yes</td>
+          <td class="color-flatui-nephritis">Yes</td>
+          <td class="color-flatui-pomegranate">No</td>
+        </tr>
+        <tr>
+          <td class="weight-500">unpkg</td>
+          <td class="color-flatui-nephritis">Okay</td>
+          <td class="color-flatui-belize-hole">
+            Automated<sup
+              ><a class="color-flatui-belize-hole" href="#sup-6">6</a></sup
+            >
+          </td>
+          <td class="color-flatui-nephritis">Yes</td>
+          <td class="color-flatui-pomegranate">No</td>
+          <td class="color-flatui-nephritis">Yes</td>
+          <td class="color-flatui-pomegranate">No</td>
+          <td class="color-flatui-nephritis">Yes</td>
+          <td class="color-flatui-pomegranate">No</td>
+          <td class="color-flatui-pomegranate">No</td>
+        </tr>
+        <tr>
+          <td class="weight-500">esm.sh</td>
+          <td class="color-flatui-nephritis">Okay</td>
+          <td class="color-flatui-belize-hole">
+            Automated<sup
+              ><a class="color-flatui-belize-hole" href="#sup-6">6</a></sup
+            >
+          </td>
+          <td class="color-flatui-nephritis">Yes</td>
+          <td class="color-flatui-pomegranate">No</td>
+          <td class="color-flatui-nephritis">Yes</td>
+          <td class="color-flatui-pomegranate">No</td>
+          <td class="color-flatui-nephritis">
+            Yes<sup
+              ><a class="color-flatui-belize-hole" href="#sup-7">7</a></sup
+            >
+          </td>
           <td class="color-flatui-pomegranate">No</td>
           <td class="color-flatui-pomegranate">No</td>
         </tr>
@@ -87,6 +133,8 @@
           <td class="weight-500">Google</td>
           <td class="color-flatui-nephritis">Okay</td>
           <td class="color-flatui-nephritis">Yes</td>
+          <td class="color-flatui-pomegranate">No</td>
+          <td class="color-flatui-pomegranate">No</td>
           <td class="color-flatui-pomegranate">No</td>
           <td class="color-flatui-pomegranate">No</td>
           <td class="color-flatui-pomegranate">No</td>
@@ -102,6 +150,8 @@
           <td class="color-flatui-pomegranate">No</td>
           <td class="color-flatui-pomegranate">No</td>
           <td class="color-flatui-pomegranate">No</td>
+          <td class="color-flatui-nephritis">Yes</td>
+          <td class="color-flatui-pomegranate">No</td>
         </tr>
         <tr>
           <td class="weight-500">Microsoft</td>
@@ -112,10 +162,14 @@
           <td class="color-flatui-pomegranate">No</td>
           <td class="color-flatui-pomegranate">No</td>
           <td class="color-flatui-pomegranate">No</td>
+          <td class="color-flatui-pomegranate">No</td>
+          <td class="color-flatui-pomegranate">No</td>
         </tr>
         <tr>
           <td class="weight-500">Yandex</td>
           <td class="color-flatui-pomegranate">Slow</td>
+          <td class="color-flatui-pomegranate">No</td>
+          <td class="color-flatui-pomegranate">No</td>
           <td class="color-flatui-pomegranate">No</td>
           <td class="color-flatui-pomegranate">No</td>
           <td class="color-flatui-pomegranate">No</td>
@@ -152,6 +206,21 @@
       <p id="sup-4" class="color-9">
         4. jsDelivr is not actually a CDN itself, instead it relies on multiple
         CDNs to guarantee performance and availability.
+      </p>
+      <p id="sup-5" class="color-9">
+        5. CDNJS is now backed by
+        <a class="color-flatui-belize-hole" href="https://www.cloudflare.com/"
+          >Cloudflare</a
+        >, giving it enterprise-grade infrastructure and global availability.
+      </p>
+      <p id="sup-6" class="color-9">
+        6. unpkg and esm.sh serve any package published to npm automatically,
+        with no submission process required.
+      </p>
+      <p id="sup-7" class="color-9">
+        7. esm.sh is purpose-built for ES modules, automatically converting
+        CommonJS packages to ESM format for use with
+        <span class="monospace">import</span> statements and import maps.
       </p>
     </section>
     <hr id="footer" />

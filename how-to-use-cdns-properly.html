@@ -64,6 +64,77 @@
         &hellip;</code
       >
     </section>
+    <hr id="use-subresource-integrity" />
+    <section>
+      <h2>Use Subresource Integrity (SRI)</h2>
+      <p>
+        When you load a script or stylesheet from a third-party CDN, you are
+        trusting that CDN to serve exactly the code you expect. Subresource
+        Integrity lets the browser verify that the file hasn't been tampered
+        with by checking it against a cryptographic hash you provide.
+      </p>
+      <p>
+        If the CDN is compromised or the file is modified in transit, the
+        browser will refuse to execute it. This is your most important defence
+        against CDN supply chain attacks.
+      </p>
+      <h3>No integrity check. Trusts the CDN blindly.</h3>
+      <code class="background-flatui-pomegranate color-white pre-block"
+        >&hellip; &lt;script
+        src="https://cdn.jsdelivr.net/gh/jquery/jquery@3/dist/jquery.min.js"&gt;
+        &lt;/script&gt; &hellip;</code
+      >
+      <h3>Verified with SRI. Rejects tampered files.</h3>
+      <code class="background-flatui-nephritis color-white pre-block"
+        >&hellip; &lt;script
+        src="https://cdn.jsdelivr.net/gh/jquery/jquery@3/dist/jquery.min.js"
+        integrity="sha384-abc123..." crossorigin="anonymous"&gt; &lt;/script&gt;
+        &hellip;</code
+      >
+      <p>
+        Generate SRI hashes with
+        <span class="monospace"
+          >openssl dgst -sha384 -binary file.js | openssl base64 -A</span
+        >, or use
+        <a class="color-flatui-belize-hole" href="https://www.srihash.org/"
+          >srihash.org</a
+        >. Both jsDelivr and CDNJS provide SRI hashes on their websites.
+      </p>
+      <p class="color-9">
+        Always include the
+        <span class="monospace">crossorigin="anonymous"</span> attribute
+        alongside <span class="monospace">integrity</span>. Without it, the
+        browser may skip the integrity check for cross-origin resources.
+      </p>
+    </section>
+    <hr id="use-resource-hints" />
+    <section>
+      <h2>Use Resource Hints</h2>
+      <p>
+        Before the browser can download a file from a CDN, it needs to resolve
+        DNS, establish a TCP connection, and negotiate TLS. Resource hints let
+        you start this process early, before the browser discovers the resource
+        naturally.
+      </p>
+      <h3>Resolve DNS and establish connection early.</h3>
+      <code class="background-flatui-nephritis color-white pre-block"
+        >&hellip; &lt;head&gt; &lt;link rel="preconnect"
+        href="https://cdn.jsdelivr.net"&gt; &lt;link rel="dns-prefetch"
+        href="https://cdn.jsdelivr.net"&gt; &hellip;</code
+      >
+      <h3>Start downloading a critical resource immediately.</h3>
+      <code class="background-flatui-nephritis color-white pre-block"
+        >&hellip; &lt;head&gt; &lt;link rel="preload"
+        href="https://cdn.jsdelivr.net/..." as="script"&gt; &hellip;</code
+      >
+      <p>
+        Use <span class="monospace">preconnect</span> when you know you'll need
+        resources from a CDN but don't know the exact URLs yet. Use
+        <span class="monospace">preload</span> when you know the exact file.
+        Include <span class="monospace">dns-prefetch</span> as a fallback for
+        browsers that don't support <span class="monospace">preconnect</span>.
+      </p>
+    </section>
     <hr id="load-javascript-asynchronously" />
     <section>
       <h2>Load JavaScript Asynchronously</h2>
@@ -153,6 +224,27 @@
           >Cerdic/jQl</a
         >
       </p>
+      <h3>Modern Alternative: ES Modules</h3>
+      <p>
+        If you don't need to support legacy browsers, native ES modules provide
+        a built-in solution to the dependency ordering problem. Modules are
+        deferred by default and respect their import graph, so dependencies are
+        always resolved in the correct order without any loader library.
+      </p>
+      <code class="background-flatui-nephritis color-white pre-block"
+        >&hellip; &lt;script type="module"&gt; import $ from
+        'https://esm.sh/jquery@3'; $('footer').css('background', 'black');
+        &lt;/script&gt; &hellip;</code
+      >
+      <p class="color-9">
+        For more complex dependency trees, consider
+        <a
+          class="color-flatui-belize-hole"
+          href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/importmap"
+          >import maps</a
+        >, which let you map bare module specifiers to CDN URLs without a
+        bundler.
+      </p>
     </section>
     <hr id="make-fewer-requests" />
     <section>
@@ -191,6 +283,61 @@
         the time a user's computer takes to find a site, so a lower latency
         means starting to load sooner. Stay away from Yandex unless your site's
         users are local to it, and you should be fine.
+      </p>
+    </section>
+    <hr id="fallback-strategies" />
+    <section>
+      <h2>Have a Fallback Strategy</h2>
+      <p>
+        CDNs can go down, get blocked, or be unreachable from certain networks.
+        Always have a plan for when a CDN resource fails to load.
+      </p>
+      <h3>Classic inline fallback for jQuery.</h3>
+      <code class="background-flatui-nephritis color-white pre-block"
+        >&hellip; &lt;script
+        src="https://cdn.jsdelivr.net/gh/jquery/jquery@3/dist/jquery.min.js"
+        integrity="sha384-abc123..." crossorigin="anonymous"&gt; &lt;/script&gt;
+        &lt;script&gt; window.jQuery || document.write( '&lt;script
+        src="/assets/js/jquery.min.js"&gt;&lt;\/script&gt;' ); &lt;/script&gt;
+        &hellip;</code
+      >
+      <p>
+        For CSS, fallbacks are harder. Consider inlining critical CSS and
+        loading CDN stylesheets with a JavaScript-based loader that can detect
+        failures, or simply self-host stylesheets that are essential to your
+        layout.
+      </p>
+      <p class="color-9">
+        A well-designed site should degrade gracefully. If your page is unusable
+        without JavaScript, that's a bigger problem than CDN availability.
+      </p>
+    </section>
+    <hr id="content-security-policy" />
+    <section>
+      <h2>Set a Content Security Policy</h2>
+      <p>
+        A Content Security Policy (CSP) header tells the browser which origins
+        are allowed to serve scripts, styles, and other resources for your page.
+        When using CDNs, you need to explicitly allowlist each CDN domain.
+      </p>
+      <h3>Example CSP header allowing jsDelivr.</h3>
+      <code class="background-flatui-nephritis color-white pre-block"
+        >Content-Security-Policy: default-src 'self'; script-src 'self'
+        https://cdn.jsdelivr.net; style-src 'self' https://cdn.jsdelivr.net
+        https://fonts.googleapis.com; font-src https://fonts.gstatic.com;</code
+      >
+      <p>
+        CSP works well alongside SRI. With
+        <span class="monospace">'strict-dynamic'</span> in your
+        <span class="monospace">script-src</span>, the browser will trust any
+        script that passes its SRI check, regardless of origin. This can
+        simplify your policy when using multiple CDNs.
+      </p>
+      <p class="color-9">
+        Start with
+        <span class="monospace">Content-Security-Policy-Report-Only</span> to
+        log violations without breaking your site, then switch to enforcing once
+        you've resolved any issues.
       </p>
     </section>
     <hr id="footer" />

@@ -86,6 +86,74 @@
         loading CSS, then it's probably from jsDelivr or CDNJS, and it's only
         Microsoft, Yahoo and Google that have been blocked in the past.
       </p>
+      <p>
+        Beyond country-level blocks, corporate firewalls and proxy servers may
+        block or filter CDN domains. Ad-blockers and privacy extensions
+        sometimes catch CDN URLs in their filter lists. And for sites with
+        European users, loading resources from US-hosted CDNs may raise GDPR
+        concerns around cross-border data transfers, since even a script request
+        transmits the user's IP address to the CDN provider.
+      </p>
+      <p>
+        Always have a
+        <a
+          class="color-flatui-belize-hole"
+          href="how-to-use-cdns-properly#fallback-strategies"
+          >fallback strategy</a
+        >
+        for when a CDN is unreachable.
+      </p>
+    </section>
+    <hr id="cdns-are-inherently-safe" />
+    <section>
+      <h2>CDNs are inherently safe</h2>
+      <h3>Supply chain attacks are real.</h3>
+      <p>
+        When you load a script from a third-party CDN, you are trusting that CDN
+        to serve exactly the code you expect. If the CDN is compromised, or
+        changes ownership, malicious code can be injected into every site that
+        loads from it.
+      </p>
+      <p>
+        This is not theoretical. In 2024, the popular polyfill.io domain was
+        acquired by a new owner and began injecting malware into the scripts it
+        served, affecting over 100,000 websites. The original maintainer had no
+        control over the domain after the sale.
+      </p>
+      <p>
+        To mitigate this risk, always use
+        <a
+          class="color-flatui-belize-hole"
+          href="how-to-use-cdns-properly#use-subresource-integrity"
+          >Subresource Integrity (SRI)</a
+        >
+        attributes on your script and link tags. SRI ensures the browser will
+        reject any file whose contents don't match the expected hash, even if
+        the CDN has been compromised.
+      </p>
+    </section>
+    <hr id="combining-files-always-helps-performance" />
+    <section>
+      <h2>Combining files always helps performance</h2>
+      <h3>HTTP/2 changed the equation.</h3>
+      <p>
+        File combiners like the one offered by jsDelivr were a significant
+        optimisation under HTTP/1.1, where each request required its own
+        connection and browsers limited parallel connections per host.
+      </p>
+      <p>
+        With HTTP/2 and HTTP/3 (now supported by all modern browsers and CDNs),
+        multiple files are multiplexed over a single connection. The overhead of
+        additional requests is dramatically reduced, making the performance
+        benefit of file combining much smaller than it once was.
+      </p>
+      <p>
+        Combining can still help when loading many very small files, or when you
+        want a single cache key for a bundle of libraries. But it's no longer
+        the clear win it used to be, and it can hurt caching
+        granularity&mdash;changing one library in a combined bundle invalidates
+        the cache for all of them.
+      </p>
     </section>
     <hr id="loading-from-cache-works-across-domains" />
     <section>
@@ -100,6 +168,14 @@
         CDNs, but modern browsers have largely eliminated it as a privacy
         protection against cross-site tracking.
       </p>
+    </section>
+    <hr id="see-also" />
+    <section>
+      <h3>
+        <a class="color-flatui-belize-hole" href="how-to-use-cdns-properly"
+          >How to use CDNs properly &rarr;</a
+        >
+      </h3>
     </section>
     <hr id="footer" />
     <footer>
