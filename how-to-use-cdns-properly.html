@@ -72,12 +72,14 @@
         against CDN supply chain attacks.
       </p>
       <h3>No integrity check. Trusts the CDN blindly.</h3>
-      <code class="background-flatui-pomegranate color-white pre-block"
-        >&lt;script src="https://cdn.example.com/library.js"&gt;&lt;/script&gt;</code>
+      <code class="background-flatui-pomegranate color-white pre-block">&lt;script src="https://cdn.example.com/library.js"&gt;
+&lt;/script&gt;</code>
       <h3>Verified with SRI. Rejects tampered files.</h3>
-      <code class="background-flatui-nephritis color-white pre-block"
-        >&lt;script src="https://cdn.example.com/library.js"
-        integrity="sha384-..." crossorigin="anonymous"&gt;&lt;/script&gt;</code>
+      <code class="background-flatui-nephritis color-white pre-block">&lt;script
+  src="https://cdn.example.com/library.js"
+  integrity="sha384-..."
+  crossorigin="anonymous"&gt;
+&lt;/script&gt;</code>
       <p>
         Generate SRI hashes with
         <span class="monospace"
@@ -104,14 +106,13 @@
         naturally.
       </p>
       <h3>Resolve DNS and establish connection early.</h3>
-      <code class="background-flatui-nephritis color-white pre-block">
-        &lt;link rel="preconnect" href="https://cdn.example.com"&gt;
-        &lt;link rel="dns-prefetch" href="https://cdn.example.com"&gt;
-      </code>
+      <code class="background-flatui-nephritis color-white pre-block">&lt;link rel="preconnect" href="https://cdn.example.com"&gt;
+&lt;link rel="dns-prefetch" href="https://cdn.example.com"&gt;</code>
       <h3>Start downloading a critical resource immediately.</h3>
-      <code class="background-flatui-nephritis color-white pre-block">
-        &lt;link rel="preload" href="https://cdn.example.com/library.js" as="script"&gt;
-      </code>
+      <code class="background-flatui-nephritis color-white pre-block">&lt;link
+  rel="preload"
+  href="https://cdn.example.com/library.js"
+  as="script"&gt;</code>
       <p>
         Use <span class="monospace">preconnect</span> when you know you'll need
         resources from a CDN but don't know the exact URLs yet. Use
@@ -173,25 +174,25 @@
         it should execute them in order, as it otherwise would have.
       </p>
       <h3>Doesn't work at all.</h3>
-      <code class="background-flatui-pomegranate color-white pre-block"
-        >&lt;script&gt; $('footer').css('background', 'black'); &lt;/script&gt;
-        &lt;/head&gt;
-        &hellip;
-        &lt;script src="library.js"&gt;&lt;/script&gt;
-        &lt;/body&gt;</code
-      >
+      <code class="background-flatui-pomegranate color-white pre-block">&lt;script&gt;
+  $('footer').css('background', 'black');
+&lt;/script&gt;
+&lt;/head&gt;
+...
+&lt;script src="library.js"&gt;&lt;/script&gt;
+&lt;/body&gt;</code>
       <h3>Blocks rest of page from loading.</h3>
-      <code class="background-flatui-carrot color-white pre-block"
-        >&lt;script src="library.js"&gt;&lt;/script&gt;
-        &lt;script&gt; $('footer').css('background', 'black'); &lt;/script&gt;
-        &lt;/head&gt;</code
-      >
+      <code class="background-flatui-carrot color-white pre-block">&lt;script src="library.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  $('footer').css('background', 'black');
+&lt;/script&gt;
+&lt;/head&gt;</code>
       <h3>Doesn't load until the page is done.</h3>
-      <code class="background-flatui-carrot color-white pre-block"
-        >&lt;script src="library.js"&gt;&lt;/script&gt;
-        &lt;script&gt; $('footer').css('background', 'black'); &lt;/script&gt;
-        &lt;/body&gt;</code
-      >
+      <code class="background-flatui-carrot color-white pre-block">&lt;script src="library.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  $('footer').css('background', 'black');
+&lt;/script&gt;
+&lt;/body&gt;</code>
       <h3>Use ES Modules &mdash; deferred and ordered by default.</h3>
       <p>
         If you don't need to support legacy browsers, native ES modules provide
@@ -199,12 +200,10 @@
         deferred by default and respect their import graph, so dependencies are
         always resolved in the correct order without any loader library.
       </p>
-      <code class="background-flatui-nephritis color-white pre-block"
-        >&lt;script type="module"&gt;
-        import $ from 'https://esm.sh/jquery@3';
-        $('footer').css('background', 'black');
-        &lt;/script&gt;</code
-      >
+      <code class="background-flatui-nephritis color-white pre-block">&lt;script type="module"&gt;
+  import $ from 'https://esm.sh/jquery@3';
+  $('footer').css('background', 'black');
+&lt;/script&gt;</code>
       <p class="color-9">
         For more complex dependency trees, consider
         <a
@@ -230,15 +229,13 @@
         HTTP/1.1, and can still help when loading many very small files.
       </p>
       <h3>One Request for Every Library.</h3>
-      <code class="background-flatui-pomegranate color-white pre-block"
-        >&lt;script src="/js/library-a.js"&gt;&lt;/script&gt;
-        &lt;script src="/js/library-b.js"&gt;&lt;/script&gt;
-        &lt;script src="/js/library-c.js"&gt;&lt;/script&gt;</code
-      >
+      <code class="background-flatui-pomegranate color-white pre-block">&lt;script src="/js/library-a.js"&gt;&lt;/script&gt;
+&lt;script src="/js/library-b.js"&gt;&lt;/script&gt;
+&lt;script src="/js/library-c.js"&gt;&lt;/script&gt;</code>
       <h3>One Request for Multiple Libraries.</h3>
-      <code class="background-flatui-nephritis color-white pre-block"
-        >&lt;script src="https://cdn.example.com/combine/a.js,b.js,c.js"&gt;&lt;/script&gt;</code
-      >
+      <code class="background-flatui-nephritis color-white pre-block">&lt;script
+  src="https://cdn.example.com/combine/a.js,b.js,c.js"&gt;
+&lt;/script&gt;</code>
     </section>
     <hr id="have-a-lower-latency" />
     <section>
@@ -266,13 +263,17 @@
         CDNs can go down, get blocked, or be unreachable from certain networks.
         Always have a plan for when a CDN resource fails to load.
       </p>
-      <h3>Classic inline fallback for jQuery.</h3>
-      <code class="background-flatui-nephritis color-white pre-block"
-        >&lt;script src="https://cdn.example.com/library.js"
-        integrity="sha384-..." crossorigin="anonymous"&gt;&lt;/script&gt;
-        &lt;script&gt; window.Library || document.write( '&lt;script
-        src="/js/library.js"&gt;&lt;\/script&gt;' ); &lt;/script&gt;</code
-      >
+      <h3>Classic inline fallback.</h3>
+      <code class="background-flatui-nephritis color-white pre-block">&lt;script
+  src="https://cdn.example.com/library.js"
+  integrity="sha384-..."
+  crossorigin="anonymous"&gt;
+&lt;/script&gt;
+&lt;script&gt;
+  window.Library || document.write(
+    '&lt;script src="/js/library.js"&gt;&lt;\/script&gt;'
+  );
+&lt;/script&gt;</code>
       <p>
         For CSS, fallbacks are harder. Consider inlining critical CSS and
         loading CDN stylesheets with a JavaScript-based loader that can detect
@@ -286,10 +287,16 @@
         can use a service worker or a small loader script to handle module
         fallbacks.
       </p>
-      <code class="background-flatui-nephritis color-white pre-block"
-        >&lt;script type="importmap"&gt; { "imports": { "library": "https://cdn.example.com/library.js" } } &lt;/script&gt;
-        &lt;script type="module"&gt; import lib from 'library'; &lt;/script&gt;</code
-      >
+      <code class="background-flatui-nephritis color-white pre-block">&lt;script type="importmap"&gt;
+{
+  "imports": {
+    "library": "https://cdn.example.com/library.js"
+  }
+}
+&lt;/script&gt;
+&lt;script type="module"&gt;
+  import lib from 'library';
+&lt;/script&gt;</code>
       <p class="color-9">
         A well-designed site should degrade gracefully. If your page is unusable
         without JavaScript, that's a bigger problem than CDN availability.
@@ -304,10 +311,10 @@
         When using CDNs, you need to explicitly allowlist each CDN domain.
       </p>
       <h3>Example CSP header allowing a CDN.</h3>
-      <code class="background-flatui-nephritis color-white pre-block"
-        >Content-Security-Policy: default-src 'self'; script-src 'self'
-        https://cdn.example.com; style-src 'self' https://cdn.example.com;</code
-      >
+      <code class="background-flatui-nephritis color-white pre-block">Content-Security-Policy:
+  default-src 'self';
+  script-src 'self' https://cdn.example.com;
+  style-src 'self' https://cdn.example.com;</code>
       <p>
         CSP works well alongside SRI. With
         <span class="monospace">'strict-dynamic'</span> in your
