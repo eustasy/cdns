@@ -37,7 +37,7 @@
         >
       </h3>
     </header>
-    <hr id="use-protocol-relative-urls" />
+    <hr id="use-https-only-urls" />
     <section>
       <h2>Use HTTPS-Only URLs</h2>
       <p>
@@ -179,8 +179,7 @@
         run once loaded, whereas <span class="monospace">async</span> or
         <span class="monospace">defer</span> are only run once loaded or the
         whole page is ready, and there is no guarantee with any use of these
-        that they will be run in order (<span class="monospace">defer</span> is
-        supposed to, but has several cases where it does not).
+        that they will be run in order.
       </p>
       <p>
         What we need then, with jQuery especially, is a way to start loading it
@@ -188,12 +187,6 @@
         to execute using jQuery functions, and hold them until it is ready. Then
         it should execute them in order, as it otherwise would have.
       </p>
-      <h3>
-        Fortunately, there is a solution that does just that, and it's name is
-        <a class="color-flatui-belize-hole" href="https://github.com/Cerdic/jQl"
-          >jQl</a
-        >.
-      </h3>
       <h3>Doesn't work at all.</h3>
       <code class="background-flatui-pomegranate color-white pre-block">
         &hellip; &lt;script&gt; $('footer').css('background', 'black');
@@ -212,19 +205,7 @@
         &lt;script&gt;$('footer').css('background', 'black');&lt;/script&gt;
         &lt;/body&gt; &hellip;</code
       >
-      <h3>Loads from header, runs when ready.</h3>
-      <code class="background-flatui-nephritis color-white pre-block">
-        &hellip; &lt;script&gt; var jQl = &hellip; jQl.loadjQ('jquery.min.js');
-        $('footer').css('background', 'black'); &lt;/script&gt; &lt;/head&gt;
-        &hellip;</code
-      >
-      <p class="text-right">
-        jQl from
-        <a class="color-flatui-belize-hole" href="https://github.com/Cerdic/jQl"
-          >Cerdic/jQl</a
-        >
-      </p>
-      <h3>Modern Alternative: ES Modules</h3>
+      <h3>Use ES Modules &mdash; deferred and ordered by default.</h3>
       <p>
         If you don't need to support legacy browsers, native ES modules provide
         a built-in solution to the dependency ordering problem. Modules are
@@ -260,15 +241,14 @@
       </p>
       <h3>One Request for Every Library.</h3>
       <code class="background-flatui-pomegranate color-white pre-block"
-        >&hellip; &lt;script src="assets/js/rem.min.js"&gt;&lt;/script&gt;
-        &lt;script src="assets/js/prefixfree.min.js"&gt;&lt;/script&gt;
-        &lt;script src="assets/js/jquery.min.js"&gt;&lt;/script&gt;
-        &hellip;</code
+        >&hellip; &lt;script src="assets/js/lodash.min.js"&gt;&lt;/script&gt;
+        &lt;script src="assets/js/axios.min.js"&gt;&lt;/script&gt; &lt;script
+        src="assets/js/jquery.min.js"&gt;&lt;/script&gt; &hellip;</code
       >
       <h3>One Request for Multiple Libraries.</h3>
       <code class="background-flatui-nephritis color-white pre-block"
         >&hellip; &lt;script
-        src="https://cdn.jsdelivr.net/combine/gh/jquery/jquery@3/dist/jquery.min.js,gh/chuckcarpenter/REM-unit-polyfill@1/js/rem.min.js,gh/LeaVerou/prefixfree@1/prefixfree.min.js"&gt;&lt;/script&gt;
+        src="https://cdn.jsdelivr.net/combine/npm/jquery@3/dist/jquery.min.js,npm/lodash@4/lodash.min.js,npm/axios@1/dist/axios.min.js"&gt;&lt;/script&gt;
         &hellip;</code
       >
     </section>
